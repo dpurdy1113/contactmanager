@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Contacts from './components/contacts/Contacts'; 
 import AddContact from './components/contacts/AddContact'; 
+import About from './components/pages/About';
 
 
 import {Provider} from './context';
@@ -17,10 +18,14 @@ class App extends Component {
       <Provider>
         <Router>
       <div className="App">
-      <div className="container">goit
       <Header branding = "Contact Manager"/>
-      <AddContact></AddContact>
-        <Contacts />
+      <div className="container">
+      <Switch>
+        <Route exact path="/" component={Contacts}/>
+        <Route exact path="/contact/add" component={AddContact}/>
+        <Route exact path="/about" component={About}/>
+
+      </Switch>
       </div>
       </div>
         </Router>
